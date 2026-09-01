@@ -1,0 +1,92 @@
+<svg viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated demonstration: packets flow from Source through a Queue and fan out to two workers, with marching dashed connectors.">
+  <title>Motion test</title>
+  <desc>Test of declarative SVG animation surviving GitHub's sanitiser. Connectors use CSS keyframes on stroke-dashoffset; packet dots use SMIL animateMotion along the same paths, staggered and at differing rates per branch. No JavaScript. If the dashes march but the packets freeze, SMIL was stripped. If the packets fly but the dashes are static, the style block was stripped.</desc>
+  <defs>
+    <pattern id="dgC" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#6d5fc4" opacity="0.10"/></pattern>
+    <marker id="arC" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" fill="#6b7280"/></marker>
+    <marker id="arA" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" fill="#2f6fa8"/></marker>
+    <marker id="arB" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" fill="#b9791f"/></marker>
+    <style>
+      .march {
+        stroke-dasharray: 8 6;
+        animation: marchC 1.1s linear infinite;
+      }
+      @keyframes marchC { to { stroke-dashoffset: -14; } }
+      .pulse { animation: pulseC 2.4s ease-in-out infinite; }
+      @keyframes pulseC {
+        0%, 100% { stroke-opacity: 1; }
+        50%      { stroke-opacity: 0.35; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .march, .pulse { animation: none; }
+      }
+    </style>
+  </defs>
+
+  <rect width="900" height="440" fill="#eef0fb"/>
+  <rect width="900" height="440" fill="url(#dgC)"/>
+
+  <!-- connector paths (marching dashes, CSS) -->
+  <path d="M240,210 L360,210" fill="none" stroke="#6b7280" stroke-width="1.6" class="march" marker-end="url(#arC)"/>
+  <path d="M540,190 L600,190 Q610,190 610,180 L610,110 Q610,100 620,100 L660,100" fill="none" stroke="#2f6fa8" stroke-width="1.6" class="march" marker-end="url(#arA)"/>
+  <path d="M540,230 L600,230 Q610,230 610,240 L610,310 Q610,320 620,320 L660,320" fill="none" stroke="#b9791f" stroke-width="1.6" class="march" marker-end="url(#arB)"/>
+
+  <!-- Packets: three staggered on the ingress leg (SMIL). Each fades in, then
+       shrinks and fades out in the last few pixels before the head, so it is gone before it reaches
+       the arrowhead rather than sitting on top of it. -->
+  <circle r="5" fill="#6b7280" opacity="0">
+    <animateMotion dur="1.8s" repeatCount="indefinite" begin="0s" path="M240,210 L360,210"/>
+    <animate attributeName="opacity" dur="1.8s" repeatCount="indefinite" begin="0s" values="0;1;1;0;0" keyTimes="0;0.06;0.92;0.99;1"/>
+    <animate attributeName="r" dur="1.8s" repeatCount="indefinite" begin="0s" values="5;5;0;0" keyTimes="0;0.92;0.99;1"/>
+  </circle>
+  <circle r="5" fill="#6b7280" opacity="0">
+    <animateMotion dur="1.8s" repeatCount="indefinite" begin="0.6s" path="M240,210 L360,210"/>
+    <animate attributeName="opacity" dur="1.8s" repeatCount="indefinite" begin="0.6s" values="0;1;1;0;0" keyTimes="0;0.06;0.92;0.99;1"/>
+    <animate attributeName="r" dur="1.8s" repeatCount="indefinite" begin="0.6s" values="5;5;0;0" keyTimes="0;0.92;0.99;1"/>
+  </circle>
+  <circle r="5" fill="#6b7280" opacity="0">
+    <animateMotion dur="1.8s" repeatCount="indefinite" begin="1.2s" path="M240,210 L360,210"/>
+    <animate attributeName="opacity" dur="1.8s" repeatCount="indefinite" begin="1.2s" values="0;1;1;0;0" keyTimes="0;0.06;0.92;0.99;1"/>
+    <animate attributeName="r" dur="1.8s" repeatCount="indefinite" begin="1.2s" values="5;5;0;0" keyTimes="0;0.92;0.99;1"/>
+  </circle>
+
+  <!-- packets: parallel branches, deliberately different rates (SMIL) -->
+  <circle r="5" fill="#2f6fa8" opacity="0">
+    <animateMotion dur="1.6s" repeatCount="indefinite" begin="0.2s" path="M540,190 L600,190 Q610,190 610,180 L610,110 Q610,100 620,100 L660,100"/>
+    <animate attributeName="opacity" dur="1.6s" repeatCount="indefinite" begin="0.2s" values="0;1;1;0;0" keyTimes="0;0.06;0.92;0.99;1"/>
+    <animate attributeName="r" dur="1.6s" repeatCount="indefinite" begin="0.2s" values="5;5;0;0" keyTimes="0;0.92;0.99;1"/>
+  </circle>
+  <circle r="5" fill="#b9791f" opacity="0">
+    <animateMotion dur="2.9s" repeatCount="indefinite" begin="0.9s" path="M540,230 L600,230 Q610,230 610,240 L610,310 Q610,320 620,320 L660,320"/>
+    <animate attributeName="opacity" dur="2.9s" repeatCount="indefinite" begin="0.9s" values="0;1;1;0;0" keyTimes="0;0.06;0.92;0.99;1"/>
+    <animate attributeName="r" dur="2.9s" repeatCount="indefinite" begin="0.9s" values="5;5;0;0" keyTimes="0;0.92;0.99;1"/>
+  </circle>
+
+  <!-- Source -->
+  <rect x="60" y="170" width="180" height="80" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="150" y="205" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#1e2333">Source</text>
+  <text x="150" y="226" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="10" fill="#6b7280">emits events</text>
+
+  <!-- Queue (focal, pulsing border) -->
+  <rect x="360" y="170" width="180" height="80" rx="10" fill="#fbf1e6" stroke="#d9822b" stroke-width="1.5" class="pulse"/>
+  <text x="450" y="205" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#1e2333">Queue</text>
+  <text x="450" y="226" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="10" fill="#d9822b">fans out</text>
+
+  <!-- Worker A -->
+  <rect x="660" y="60" width="180" height="80" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="750" y="95" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#1e2333">Worker A</text>
+  <text x="750" y="116" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="10" fill="#2f6fa8">fast lane</text>
+
+  <!-- Worker B -->
+  <rect x="660" y="280" width="180" height="80" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="750" y="315" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#1e2333">Worker B</text>
+  <text x="750" y="336" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="10" fill="#b9791f">slow lane</text>
+
+  <!-- legend -->
+  <line x1="60" y1="400" x2="840" y2="400" stroke="#c9c2b2" stroke-width="1"/>
+  <circle cx="70" cy="418" r="5" fill="#6b7280"/>
+  <text x="84" y="422" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9" fill="#1e2333">SMIL animateMotion · staggered begin</text>
+  <line x1="360" y1="418" x2="392" y2="418" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="8 6"/>
+  <text x="402" y="422" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9" fill="#1e2333">CSS keyframes · stroke-dashoffset</text>
+  <text x="700" y="422" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9" fill="#8b93a1">no JavaScript</text>
+</svg>
