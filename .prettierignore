@@ -1,0 +1,5 @@
+# SVG is never formatted. A diagram's coordinates, path data, and animation timing are the
+# artifact itself — reflowing them risks changing what the file draws.
+*.svg
+
+node_modules
