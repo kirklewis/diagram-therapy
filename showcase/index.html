@@ -1,0 +1,358 @@
+<title>Diagram Language Trials</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --page: #f3f0fb; --card: #ffffff; --rule: #d8d4ee;
+    --ink: #1e2333; --muted: #5b5f73;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --page: #1c1a2b; --card: #24213a; --rule: #38334f;
+      --ink: #eceaf6; --muted: #a49fc0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page: #1c1a2b; --card: #24213a; --rule: #38334f;
+    --ink: #eceaf6; --muted: #a49fc0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--page); color: var(--ink);
+    font-family: 'Geist', -apple-system, sans-serif;
+    padding: 40px 24px 72px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 {
+    font-family: 'Instrument Serif', Georgia, serif; font-weight: 400;
+    font-size: 32px; margin: 0 0 10px;
+  }
+  .lede { color: var(--muted); font-size: 15px; line-height: 1.6; max-width: 64ch; margin: 0 0 32px; }
+  .pair { display: grid; gap: 24px; }
+  figure {
+    margin: 0; background: var(--card); border: 1px solid var(--rule);
+    border-radius: 12px; overflow: hidden;
+  }
+  figcaption { padding: 16px 20px 14px; border-bottom: 1px solid var(--rule); }
+  .name { font-size: 15px; font-weight: 600; margin: 0 0 4px; }
+  .why { font-size: 13px; color: var(--muted); line-height: 1.55; margin: 0; }
+  .body { padding: 12px; }
+  svg { display: block; width: 100%; height: auto; }
+  .note {
+    margin-top: 28px; background: var(--card); border: 1px solid var(--rule);
+    border-radius: 12px; padding: 20px 24px;
+  }
+  .note h2 {
+    font-family: 'Instrument Serif', Georgia, serif; font-style: italic;
+    font-weight: 400; font-size: 19px; margin: 0 0 10px;
+  }
+  .note p { font-size: 13.5px; color: var(--muted); line-height: 1.65; margin: 0 0 10px; max-width: 70ch; }
+  .note strong { color: var(--ink); }
+  code { font-family: 'Geist Mono', monospace; font-size: 12px; }
+</style>
+
+<div class="wrap">
+  <h1>Diagram language trials</h1>
+  <p class="lede">
+    Two open questions for the house style. <strong>First:</strong> do the old category badges still
+    earn their place now that card colour carries the tier? <strong>Second:</strong> can we animate,
+    and should we? Scroll to the bottom for the motion test.
+  </p>
+
+  <div class="pair">
+
+    <figure>
+      <figcaption>
+        <p class="name">A · Current — colour carries the tier, no badges</p>
+        <p class="why">Orange = the focal registry, blue = distribution, gold = consumption. Three white cards are left uncategorised: Developer, Package Registry, Remote MCP Server look unrelated to each other.</p>
+      </figcaption>
+      <div class="body">
+        <svg viewBox="0 0 960 830" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Current version: colour carries the tier, no category badges.">
+          <defs>
+            <pattern id="dgA" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#6d5fc4" opacity="0.10"/></pattern>
+            <marker id="arA" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" fill="#6b7280"/></marker>
+          </defs>
+          <rect width="960" height="830" fill="#eef0fb"/>
+          <rect width="960" height="830" fill="url(#dgA)"/>
+          <path d="M310,130 L310,250" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arA)"/>
+          <text x="322" y="196" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">publishes server.json</text>
+          <path d="M420,85 L760,85 Q770,85 770,95 L770,250" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arA)"/>
+          <text x="590" y="77" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">publishes package</text>
+          <path d="M200,282 C140,282 140,338 200,338" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arA)"/>
+          <text x="132" y="303" text-anchor="end" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">namespace check</text>
+          <text x="132" y="318" text-anchor="end" font-family="Geist Mono, monospace" font-size="9" fill="#8b93a1">GitHub · DNS · HTTP</text>
+          <path d="M420,310 L660,310" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arA)"/>
+          <text x="540" y="302" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">package ownership check</text>
+          <path d="M310,370 L310,460" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arA)"/>
+          <text x="322" y="420" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">metadata via OpenAPI</text>
+          <path d="M310,580 L310,670" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arA)"/>
+          <text x="322" y="630" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">discovery</text>
+          <path d="M420,695 L520,695 Q530,695 530,685 L530,420 Q530,410 540,410 L760,410 Q770,410 770,400 L770,370" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arA)"/>
+          <text x="542" y="556" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">installs from</text>
+          <path d="M420,740 L660,740" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arA)"/>
+          <text x="540" y="732" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">connects directly to</text>
+
+          <rect x="200" y="40" width="220" height="90" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <text x="310" y="82" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#1e2333">Developer</text>
+          <text x="310" y="104" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">server author</text>
+
+          <rect x="200" y="250" width="220" height="120" rx="10" fill="#fbf1e6" stroke="#d9822b" stroke-width="1.5"/>
+          <text x="310" y="300" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#1e2333">Official MCP Registry</text>
+          <text x="310" y="324" text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" fill="#d9822b">metadata, not code</text>
+
+          <rect x="660" y="250" width="220" height="120" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <text x="770" y="300" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#1e2333">Package Registry</text>
+          <text x="770" y="324" text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" fill="#6b7280">npm · PyPI · crates.io</text>
+
+          <rect x="200" y="460" width="220" height="120" rx="10" fill="#ecf2f7" stroke="#2f6fa8" stroke-width="1.5"/>
+          <text x="310" y="503" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Aggregator / Marketplace</text>
+          <text x="310" y="522" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#1e2333">or private registry</text>
+          <text x="310" y="545" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#2f6fa8">implements the OpenAPI spec</text>
+
+          <rect x="200" y="670" width="220" height="105" rx="10" fill="#fdf3e3" stroke="#e9ac58" stroke-width="1.5"/>
+          <text x="310" y="716" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#1e2333">MCP Host</text>
+          <text x="310" y="739" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#b9791f">consumes via aggregator</text>
+
+          <rect x="660" y="670" width="220" height="105" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <text x="770" y="716" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#1e2333">Remote MCP Server</text>
+          <text x="770" y="739" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">publicly accessible URL</text>
+        </svg>
+      </div>
+    </figure>
+
+    <figure>
+      <figcaption>
+        <p class="name">B · Badged — cards go quiet, badges carry the category</p>
+        <p class="why">Only the focal registry keeps its orange fill. Badges now group the nodes: <code>META</code> for the two metadata layers, <code>CODE</code> for the two places real code lives, <code>HOST</code> and <code>DEV</code> for the actors. The code-vs-metadata split — the article's opening claim — becomes visible.</p>
+      </figcaption>
+      <div class="body">
+        <svg viewBox="0 0 960 830" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Badged version: cards mostly neutral, category badges carry metadata versus code grouping.">
+          <defs>
+            <pattern id="dgB" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#6d5fc4" opacity="0.10"/></pattern>
+            <marker id="arB" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" fill="#6b7280"/></marker>
+          </defs>
+          <rect width="960" height="830" fill="#eef0fb"/>
+          <rect width="960" height="830" fill="url(#dgB)"/>
+          <path d="M310,130 L310,250" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arB)"/>
+          <text x="322" y="196" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">publishes server.json</text>
+          <path d="M420,85 L760,85 Q770,85 770,95 L770,250" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arB)"/>
+          <text x="590" y="77" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">publishes package</text>
+          <path d="M200,282 C140,282 140,338 200,338" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arB)"/>
+          <text x="132" y="303" text-anchor="end" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">namespace check</text>
+          <text x="132" y="318" text-anchor="end" font-family="Geist Mono, monospace" font-size="9" fill="#8b93a1">GitHub · DNS · HTTP</text>
+          <path d="M420,310 L660,310" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arB)"/>
+          <text x="540" y="302" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">package ownership check</text>
+          <path d="M310,370 L310,460" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arB)"/>
+          <text x="322" y="420" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">metadata via OpenAPI</text>
+          <path d="M310,580 L310,670" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arB)"/>
+          <text x="322" y="630" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">discovery</text>
+          <path d="M420,695 L520,695 Q530,695 530,685 L530,420 Q530,410 540,410 L760,410 Q770,410 770,400 L770,370" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arB)"/>
+          <text x="542" y="556" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">installs from</text>
+          <path d="M420,740 L660,740" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arB)"/>
+          <text x="540" y="732" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">connects directly to</text>
+
+          <!-- Developer · DEV -->
+          <rect x="200" y="40" width="220" height="90" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <rect x="212" y="52" width="30" height="16" rx="4" fill="#6b7280" opacity="0.16"/>
+          <text x="227" y="63.5" text-anchor="middle" font-family="Geist Mono, monospace" font-size="8" font-weight="600" letter-spacing="0.04em" fill="#4b5563">DEV</text>
+          <text x="310" y="93" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#1e2333">Developer</text>
+          <text x="310" y="113" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">server author</text>
+
+          <!-- Official MCP Registry · META (focal kept) -->
+          <rect x="200" y="250" width="220" height="120" rx="10" fill="#fbf1e6" stroke="#d9822b" stroke-width="1.5"/>
+          <rect x="212" y="262" width="36" height="16" rx="4" fill="#4f46e5" opacity="0.16"/>
+          <text x="230" y="273.5" text-anchor="middle" font-family="Geist Mono, monospace" font-size="8" font-weight="600" letter-spacing="0.04em" fill="#4f46e5">META</text>
+          <text x="310" y="311" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#1e2333">Official MCP Registry</text>
+          <text x="310" y="334" text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" fill="#d9822b">metadata, not code</text>
+
+          <!-- Package Registry · CODE -->
+          <rect x="660" y="250" width="220" height="120" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <rect x="672" y="262" width="38" height="16" rx="4" fill="#b9791f" opacity="0.18"/>
+          <text x="691" y="273.5" text-anchor="middle" font-family="Geist Mono, monospace" font-size="8" font-weight="600" letter-spacing="0.04em" fill="#8a5a12">CODE</text>
+          <text x="770" y="311" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#1e2333">Package Registry</text>
+          <text x="770" y="334" text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" fill="#6b7280">npm · PyPI · crates.io</text>
+
+          <!-- Aggregator · META -->
+          <rect x="200" y="460" width="220" height="120" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <rect x="212" y="472" width="36" height="16" rx="4" fill="#4f46e5" opacity="0.16"/>
+          <text x="230" y="483.5" text-anchor="middle" font-family="Geist Mono, monospace" font-size="8" font-weight="600" letter-spacing="0.04em" fill="#4f46e5">META</text>
+          <text x="310" y="512" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Aggregator / Marketplace</text>
+          <text x="310" y="531" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#1e2333">or private registry</text>
+          <text x="310" y="554" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">implements the OpenAPI spec</text>
+
+          <!-- MCP Host · HOST -->
+          <rect x="200" y="670" width="220" height="105" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <rect x="212" y="682" width="38" height="16" rx="4" fill="#2f6fa8" opacity="0.16"/>
+          <text x="231" y="693.5" text-anchor="middle" font-family="Geist Mono, monospace" font-size="8" font-weight="600" letter-spacing="0.04em" fill="#2f6fa8">HOST</text>
+          <text x="310" y="727" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#1e2333">MCP Host</text>
+          <text x="310" y="749" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">consumes via aggregator</text>
+
+          <!-- Remote MCP Server · CODE -->
+          <rect x="660" y="670" width="220" height="105" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <rect x="672" y="682" width="38" height="16" rx="4" fill="#b9791f" opacity="0.18"/>
+          <text x="691" y="693.5" text-anchor="middle" font-family="Geist Mono, monospace" font-size="8" font-weight="600" letter-spacing="0.04em" fill="#8a5a12">CODE</text>
+          <text x="770" y="727" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#1e2333">Remote MCP Server</text>
+          <text x="770" y="749" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">publicly accessible URL</text>
+
+          <!-- legend -->
+          <line x1="200" y1="800" x2="880" y2="800" stroke="#c9c2b2" stroke-width="1"/>
+          <rect x="200" y="812" width="30" height="14" rx="4" fill="#6b7280" opacity="0.16"/>
+          <text x="238" y="823" font-family="Geist Mono, monospace" font-size="9" fill="#1e2333">DEV · author</text>
+          <rect x="350" y="812" width="30" height="14" rx="4" fill="#4f46e5" opacity="0.16"/>
+          <text x="388" y="823" font-family="Geist Mono, monospace" font-size="9" fill="#1e2333">META · describes a server</text>
+          <rect x="580" y="812" width="30" height="14" rx="4" fill="#b9791f" opacity="0.18"/>
+          <text x="618" y="823" font-family="Geist Mono, monospace" font-size="9" fill="#1e2333">CODE · runs the server</text>
+          <rect x="790" y="812" width="30" height="14" rx="4" fill="#2f6fa8" opacity="0.16"/>
+          <text x="828" y="823" font-family="Geist Mono, monospace" font-size="9" fill="#1e2333">HOST</text>
+        </svg>
+      </div>
+    </figure>
+
+    <figure>
+      <figcaption>
+        <p class="name">C · Motion test — SMIL and CSS side by side</p>
+        <p class="why">Two techniques in one file, deliberately. The <strong>connectors</strong> march via CSS <code>@keyframes</code> on <code>stroke-dashoffset</code>. The <strong>packets</strong> move via SMIL <code>&lt;animateMotion&gt;</code>, staggered on the first leg and running at different rates down the two branches. If one technique survives GitHub's sanitiser and the other doesn't, this file shows you which.</p>
+      </figcaption>
+      <div class="body">
+        <svg viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated demonstration: packets flow from Source through a Queue and fan out to two workers, with marching dashed connectors.">
+          <title>Motion test</title>
+          <desc>Demonstration of declarative SVG animation for the Praxis diagram language. Connectors use CSS keyframes on stroke-dashoffset; packet dots use SMIL animateMotion along the same paths, staggered and at differing rates per branch. No JavaScript.</desc>
+          <defs>
+            <pattern id="dgC" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#6d5fc4" opacity="0.10"/></pattern>
+            <marker id="arC" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" fill="#6b7280"/></marker>
+            <style>
+              .march {
+                stroke-dasharray: 8 6;
+                animation: marchC 1.1s linear infinite;
+              }
+              @keyframes marchC { to { stroke-dashoffset: -14; } }
+              .pulse { animation: pulseC 2.4s ease-in-out infinite; }
+              @keyframes pulseC {
+                0%, 100% { stroke-opacity: 1; }
+                50%      { stroke-opacity: 0.35; }
+              }
+              @media (prefers-reduced-motion: reduce) {
+                .march, .pulse { animation: none; }
+              }
+            </style>
+          </defs>
+
+          <rect width="900" height="440" fill="#eef0fb"/>
+          <rect width="900" height="440" fill="url(#dgC)"/>
+
+          <!-- connector paths (marching dashes) -->
+          <path id="legC1" d="M240,210 L360,210" fill="none" stroke="#6b7280" stroke-width="1.6" class="march" marker-end="url(#arC)"/>
+          <path id="legC2" d="M540,190 L600,190 Q610,190 610,180 L610,110 Q610,100 620,100 L660,100" fill="none" stroke="#6b7280" stroke-width="1.6" class="march" marker-end="url(#arC)"/>
+          <path id="legC3" d="M540,230 L600,230 Q610,230 610,240 L610,310 Q610,320 620,320 L660,320" fill="none" stroke="#6b7280" stroke-width="1.6" class="march" marker-end="url(#arC)"/>
+
+          <!-- packets: three staggered on the ingress leg -->
+          <circle r="5" fill="#4f46e5">
+            <animateMotion dur="1.8s" repeatCount="indefinite" begin="0s"
+              path="M240,210 L360,210"/>
+          </circle>
+          <circle r="5" fill="#4f46e5">
+            <animateMotion dur="1.8s" repeatCount="indefinite" begin="0.6s"
+              path="M240,210 L360,210"/>
+          </circle>
+          <circle r="5" fill="#4f46e5">
+            <animateMotion dur="1.8s" repeatCount="indefinite" begin="1.2s"
+              path="M240,210 L360,210"/>
+          </circle>
+
+          <!-- packets: parallel branches, deliberately different rates -->
+          <circle r="5" fill="#2f6fa8">
+            <animateMotion dur="1.6s" repeatCount="indefinite" begin="0.2s"
+              path="M540,190 L600,190 Q610,190 610,180 L610,110 Q610,100 620,100 L660,100"/>
+          </circle>
+          <circle r="5" fill="#b9791f">
+            <animateMotion dur="2.9s" repeatCount="indefinite" begin="0.9s"
+              path="M540,230 L600,230 Q610,230 610,240 L610,310 Q610,320 620,320 L660,320"/>
+          </circle>
+
+          <!-- Source -->
+          <rect x="60" y="170" width="180" height="80" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <text x="150" y="205" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#1e2333">Source</text>
+          <text x="150" y="226" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#6b7280">emits events</text>
+
+          <!-- Queue (focal, pulsing border) -->
+          <rect x="360" y="170" width="180" height="80" rx="10" fill="#fbf1e6" stroke="#d9822b" stroke-width="1.5" class="pulse"/>
+          <text x="450" y="205" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#1e2333">Queue</text>
+          <text x="450" y="226" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#d9822b">fans out</text>
+
+          <!-- Worker A -->
+          <rect x="660" y="60" width="180" height="80" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <text x="750" y="95" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#1e2333">Worker A</text>
+          <text x="750" y="116" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#2f6fa8">fast lane</text>
+
+          <!-- Worker B -->
+          <rect x="660" y="280" width="180" height="80" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <text x="750" y="315" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#1e2333">Worker B</text>
+          <text x="750" y="336" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#b9791f">slow lane</text>
+
+          <!-- legend -->
+          <line x1="60" y1="400" x2="840" y2="400" stroke="#c9c2b2" stroke-width="1"/>
+          <circle cx="70" cy="418" r="5" fill="#4f46e5"/>
+          <text x="84" y="422" font-family="Geist Mono, monospace" font-size="9" fill="#1e2333">SMIL animateMotion · staggered begin</text>
+          <line x1="360" y1="418" x2="392" y2="418" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="8 6"/>
+          <text x="402" y="422" font-family="Geist Mono, monospace" font-size="9" fill="#1e2333">CSS keyframes · stroke-dashoffset</text>
+          <text x="700" y="422" font-family="Geist Mono, monospace" font-size="9" fill="#8b93a1">no JavaScript</text>
+        </svg>
+      </div>
+    </figure>
+
+  </div>
+
+  <div class="note">
+    <h2>What I'd actually recommend</h2>
+    <p>
+      <strong>Process diagram — yes.</strong> B is the stronger diagram, and not because it's
+      busier. The <code>CODE</code> pairing links <code>Package Registry</code> and
+      <code>Remote MCP Server</code>, which the current version leaves looking unrelated even though
+      they're the two halves of the same idea. That's the article's opening claim made visible.
+    </p>
+    <p>
+      <strong>Ecosystem diagram — probably not.</strong> Four of its five nodes would be
+      <code>META</code>. A category that nearly everything shares isn't a category, it's noise.
+    </p>
+    <p>
+      <strong>Codex loop — no.</strong> The top-left corner is already taken by the numbered step
+      chips, and those chips already carry the actor colour. A second chip beside them is clutter,
+      and the diagram is sequential rather than categorical anyway.
+    </p>
+    <p>
+      One thing to decide either way: badges only work if the cards go quiet, as in B. Keeping
+      colour-by-tier <em>and</em> adding badges means two encodings competing on one node — that's
+      what made the very first WebMCP attempt feel muddy.
+    </p>
+  </div>
+
+  <div class="note">
+    <h2>On the animation, honestly</h2>
+    <p>
+      <strong>Verify before you commit.</strong> The part I can't confirm from here is whether
+      GitHub's sanitiser preserves an embedded <code>&lt;style&gt;</code> block on the gist raw-URL
+      path. C uses SMIL and CSS deliberately so it doubles as the test: if the dashes stop marching
+      but the packets still fly, <code>&lt;style&gt;</code> was stripped and CSS is out. Worth one
+      throwaway gist before this goes into the house style.
+    </p>
+    <p>
+      <strong>SMIL is the safer bet of the two</strong> if only one survives — it's inline attributes
+      rather than a style block, so there's less for a sanitiser to object to. The counter-argument
+      is that SMIL has had a wobbly standards history (Chrome announced intent to deprecate years
+      back, then reversed). Neither is risk-free; CSS is the more future-proof language, SMIL the
+      more likely to survive sanitisation.
+    </p>
+    <p>
+      <strong>The accessibility gap is real.</strong> The CSS half honours
+      <code>prefers-reduced-motion</code> — I've guarded it in C. The SMIL half
+      <em>cannot</em> be disabled that way, so a reader with motion sensitivity gets the packets
+      regardless. If that matters, it's an argument for keeping motion to the dashes.
+    </p>
+    <p>
+      <strong>And the editorial question.</strong> Motion suits diagrams about <em>flow over
+      time</em> — a queue draining, a retry loop, packets racing down uneven branches. It actively
+      hurts a structural diagram: the MCP ecosystem map isn't a thing that moves, and animating it
+      would imply a liveness that isn't there. I'd keep motion for the loop-shaped diagrams and
+      leave the architecture maps still.
+    </p>
+  </div>
+</div>
