@@ -1,0 +1,112 @@
+<svg viewBox="0 0 1000 1350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Online checkout flow: from shopping cart through authentication, shipping, billing, payment authorisation and confirmation, with a retry path when payment is denied.">
+  <title>Online checkout flow</title>
+  <desc>Source: e-commerce-checkout-flow.md (mermaid, graph TD). Redraw changes layout, colour, shape styling and connector routing only. Nodes: 14 in source, 14 drawn. Edges: 16 in source, 16 drawn. Node titles, node captions and edge labels all preserved verbatim from the source. Added: none. Dropped: none. The classDef fills in the source are presentation and were replaced by house tokens; the class assignments themselves (startnode, process, decision, endnode) carry meaning and are expressed as shape and border colour. Focal accent sits on Payment Authorization: it is the only decision whose failure branch returns the reader to an earlier step.</desc>
+  <defs>
+    <pattern id="dgK" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#6d5fc4" opacity="0.10"/></pattern>
+    <marker id="arK" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#6b7280"/></marker>
+    <marker id="arO" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d9822b"/></marker>
+  </defs>
+
+  <rect width="1000" height="1350" fill="#eef0fb"/>
+  <rect width="1000" height="1350" fill="url(#dgK)"/>
+
+  <!-- connectors -->
+  <path d="M500,94 L500,128" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M500,232 L500,268" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M615,180 L725,180" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M840,212 L840,290 Q840,300 830,300 L615,300" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M500,332 L500,378" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M500,442 L500,478" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M500,582 L500,628" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M615,530 L725,530" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M840,562 L840,650 Q840,660 830,660 L615,660" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M500,692 L500,738" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M500,802 L500,838" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M500,942 L500,988" fill="none" stroke="#d9822b" stroke-width="1.5" marker-end="url(#arO)"/>
+  <path d="M385,890 L275,890" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M160,858 L160,670 Q160,660 170,660 L385,660" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M500,1052 L500,1098" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+  <path d="M500,1162 L500,1208" fill="none" stroke="#6b7280" stroke-width="1.4" marker-end="url(#arK)"/>
+
+  <!-- edge labels -->
+  <text x="512" y="115" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">Proceed to Checkout</text>
+  <text x="512" y="254" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">Guest Checkout</text>
+  <text x="648" y="162" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">Login / Create Account</text>
+  <text x="512" y="464" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">Calculate Cost</text>
+  <text x="512" y="609" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">Same as Shipping</text>
+  <text x="648" y="512" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">Different Address</text>
+  <text x="512" y="824" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">Place Order</text>
+  <text x="512" y="969" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#d9822b">Authorized</text>
+  <text x="330" y="872" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">Denied / Error</text>
+
+  <!-- terminals -->
+  <rect x="385" y="30" width="230" height="64" rx="32" fill="#ffffff" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="500" y="57" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Shopping Cart</text>
+  <text x="500" y="76" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#4f46e5">items chosen, nothing charged</text>
+
+  <rect x="385" y="1208" width="230" height="64" rx="32" fill="#ffffff" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="500" y="1235" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">End</text>
+  <text x="500" y="1254" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#4f46e5">nothing further is required</text>
+
+  <!-- decisions -->
+  <path d="M500,128 L615,180 L500,232 L385,180 Z" fill="#ecf2f7" stroke="#2f6fa8" stroke-width="1.5"/>
+  <text x="500" y="177" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Authentication</text>
+  <text x="500" y="196" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#2f6fa8">decides how details arrive</text>
+
+  <path d="M500,478 L615,530 L500,582 L385,530 Z" fill="#ecf2f7" stroke="#2f6fa8" stroke-width="1.5"/>
+  <text x="500" y="527" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Billing Address</text>
+  <text x="500" y="546" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#2f6fa8">where the card is registered</text>
+
+  <path d="M500,838 L615,890 L500,942 L385,890 Z" fill="#fbf1e6" stroke="#d9822b" stroke-width="1.5"/>
+  <text x="500" y="887" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Payment Authorization</text>
+  <text x="500" y="906" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#d9822b">funds held, not yet captured</text>
+
+  <!-- processes -->
+  <rect x="725" y="148" width="230" height="64" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="840" y="175" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Pre-fill User Info</text>
+  <text x="840" y="194" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">details from the account</text>
+
+  <rect x="385" y="268" width="230" height="64" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="500" y="295" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Enter Shipping Information</text>
+  <text x="500" y="314" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">where the order goes</text>
+
+  <rect x="385" y="378" width="230" height="64" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="500" y="405" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Select Shipping Method</text>
+  <text x="500" y="424" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">speed against cost</text>
+
+  <rect x="725" y="498" width="230" height="64" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="840" y="525" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Enter Billing Information</text>
+  <text x="840" y="544" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">when it differs from shipping</text>
+
+  <rect x="385" y="628" width="230" height="64" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="500" y="655" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Select Payment Method</text>
+  <text x="500" y="674" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">the instrument to charge</text>
+
+  <rect x="385" y="738" width="230" height="64" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="500" y="765" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Review Order Summary</text>
+  <text x="500" y="784" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">last look before commitment</text>
+
+  <rect x="45" y="858" width="230" height="64" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="160" y="885" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Display Payment Error</text>
+  <text x="160" y="904" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">cart and details preserved</text>
+
+  <rect x="385" y="988" width="230" height="64" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="500" y="1015" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Order Confirmation Page</text>
+  <text x="500" y="1034" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">the order now exists</text>
+
+  <rect x="385" y="1098" width="230" height="64" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="500" y="1125" text-anchor="middle" font-family="Geist, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e2333">Send Confirmation Email</text>
+  <text x="500" y="1144" text-anchor="middle" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#6b7280">a receipt outside the session</text>
+
+  <!-- legend -->
+  <line x1="45" y1="1300" x2="955" y2="1300" stroke="#c9cede" stroke-width="1"/>
+  <rect x="45" y="1315" width="34" height="18" rx="9" fill="#ffffff" stroke="#4f46e5" stroke-width="1.3"/>
+  <text x="88" y="1328" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9" fill="#1e2333">start / end</text>
+  <rect x="180" y="1315" width="34" height="18" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.3"/>
+  <text x="223" y="1328" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9" fill="#1e2333">step</text>
+  <path d="M300,1315 L326,1324 L300,1333 L274,1324 Z" fill="#ecf2f7" stroke="#2f6fa8" stroke-width="1.3"/>
+  <text x="335" y="1328" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9" fill="#1e2333">decision</text>
+  <path d="M430,1315 L456,1324 L430,1333 L404,1324 Z" fill="#fbf1e6" stroke="#d9822b" stroke-width="1.3"/>
+  <text x="465" y="1328" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9" fill="#1e2333">the one branch that can send you back</text>
+  <text x="955" y="1328" text-anchor="end" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9" fill="#8b93a1">14 nodes · 16 edges · every caption from the source</text>
+</svg>
